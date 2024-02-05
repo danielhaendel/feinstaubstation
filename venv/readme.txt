@@ -6,5 +6,23 @@
 /_/    \___/_/_/ /_/____/\__/\__,_/\__,_/_.___/____/\__/\__,_/\__/_/\____/_/ /_/ 
                                                                                  
 
+clone the repo to your local computer:
+--  go to dir
+--  git clone https://github.com/danielhaendel/feinstaubstation
 
-Pflichtenheft
+
+How to use django:
+
+User the .env file from Teams:
+--  copy the file in the venv folder
+
+Acivate the virtual enviroment:
+--  venv\Scripts\activate
+
+Start the django server:
+--  python manage.py runserver
+
+Make database Change:
+--  python manage.py makemigrations
+--  python manage.py migrate
+
