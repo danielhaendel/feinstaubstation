@@ -14,7 +14,12 @@ clone the repo to your local computer:
 How to use django:
 
 User the .env file from Teams:
---  copy the file in the venv folder
+--  copy the file in the project folder 
+
+Change the pyvenv.cfg in the venv folder
+-- home = C:\in\your\dir\Local\Programs\Python\Python312
+-- executable = C:\in\your\dir\Local\Programs\Python\Python312\python.exe
+-- command = C:\in\your\dir\Programs\Python\Python312\python.exe -m venv C:\in\your\dir\Documents\dev\feinstaubstation\venv
 
 Acivate the virtual enviroment:
 --  venv\Scripts\activate
@@ -25,4 +30,6 @@ Start the django server:
 Make database Change:
 --  python manage.py makemigrations
 --  python manage.py migrate
+
+
 
