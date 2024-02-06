@@ -18,7 +18,7 @@ class SDS011_3659_2022(models.Model):
     ratiop2 = models.FloatField(null=True)
 
     def __str__(self):
-        return f"id: {self.id}, sensor_type: {self.sensor_type}"
+        return f"{self.id} - {self.sensor_type}"
 
 
 class DHT22_3660_2022(models.Model):
@@ -33,5 +33,5 @@ class DHT22_3660_2022(models.Model):
     humidity = models.FloatField(null=True)
 
     def __str__(self):
-        return f"id: {self.id}, sensor_type: {self.sensor_type}"
+        return f"{self.id} - {self.sensor_type}"
     
