@@ -16,16 +16,18 @@
             <label for="sensorType">Sensortyp:</label>
             <select id="sensorType" name="sensorType" required>
                 <option value="temperatur">Temperatur</option>
-                <option value="feuchtigkeit">Feuchtigkeit</option>
-                <option value="druck">Druck</option>
+                <option value="humidity">Luftfeuchtigkeit</option>
+                <option value="pm">Feinstaub</option>
+                <!--TODO: rausfinden welche daten hier noch benötigt werden und berichten an DH -->
                 <!-- Weitere Sensortypen können hier hinzugefügt werden -->
             </select>
 
             <button type="submit">Abfragen</button>
         </form>
         <div id="result">
-            <p>Wert 1: <span id="value1">-</span></p>
-            <p>Wert 2: <span id="value2">-</span></p>
+            <p>Höchstwert: <span id="high">-</span></p>
+            <p>Durchschnittswert: <span id="mid">-</span></p>
+            <p>Niedrigster Wert: <span id="low">-</span></p>
         </div>
     </div>
 </body>

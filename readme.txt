@@ -9,6 +9,7 @@
 clone the repo to your local computer:
 --  go to dir
 --  git clone https://github.com/danielhaendel/feinstaubstation
+--
 
 
 How to use django:
@@ -25,11 +26,8 @@ Acivate the virtual enviroment:
 --  venv\Scripts\activate
 
 Start the django server:
---  python manage.py runserver
+--  python manage.py runserver (ggf. den port ändern und zb 9000 verwenden)
 
 Make database Change:
 --  python manage.py makemigrations
 --  python manage.py migrate
-
-
-
