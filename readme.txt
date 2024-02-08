@@ -9,21 +9,23 @@
 clone the repo to your local computer:
 --  go to dir
 --  git clone https://github.com/danielhaendel/feinstaubstation
---
 
 
-How to use django:
+---------- INSTALL DJANGO: ----------
 
 User the .env file from Teams:
---  copy the file in the project folder 
+--  copy the file in the project folder
+--  rename the file to .env
 
-Change the pyvenv.cfg in the venv folder
--- home = C:\in\your\dir\Local\Programs\Python\Python312
--- executable = C:\in\your\dir\Local\Programs\Python\Python312\python.exe
--- command = C:\in\your\dir\Programs\Python\Python312\python.exe -m venv C:\in\your\dir\Documents\dev\feinstaubstation\venv
+Install the virtual enviroment:
+--  python -m venv venv
+--  pip install -r requirements.txt
 
 Acivate the virtual enviroment:
 --  venv\Scripts\activate
+
+
+------------ USE DJANGO: ------------
 
 Start the django server:
 --  python manage.py runserver (ggf. den port ändern und zb 9000 verwenden)
