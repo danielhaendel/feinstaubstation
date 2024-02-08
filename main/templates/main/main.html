@@ -7,8 +7,17 @@
     <title>Sensordaten Abfrage</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+<style>
+    body {
+        background-image: url('{% static 'img/background.jpg' %}');
+    }
+</style>
 <body>
     <div class="form-container">
+        <div class="header">
+            <img src="{% static 'img/tbs1_logo.png' %}" alt="TBS1 Logo">
+            <h1>Luftdaten TBS1</h1>
+        </div>
         <form id="sensorQueryForm">
             <label for="date">Datum:</label>
             <input type="date" id="date" name="date" required>
@@ -25,9 +34,9 @@
             <button type="submit">Abfragen</button>
         </form>
         <div id="result">
-            <p>Höchstwert: <span id="high">-</span></p>
-            <p>Durchschnittswert: <span id="mid">-</span></p>
-            <p>Niedrigster Wert: <span id="low">-</span></p>
+            <p>Höchstwert: {{ highest_humidity }} % </p>
+            <p>Durchschnittswert: {{ average_humidity }} %</p>
+            <p>Niedrigster Wert: {{ lowest_humidity }} %</p>
         </div>
     </div>
 </body>

@@ -11,7 +11,7 @@ body {
 
 .form-container {
     background-color: rgb(255, 255, 255);
-    width: 300px;
+    width: 500px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -29,17 +29,17 @@ label {
 input, select, button {
     padding: 10px;
     margin-top: 5px;
-    border-radius: 5px;
+    border-radius: 8px;
     border: 1px solid #ddd;
 }
 
 button {
-    background-color: #ff0000a0;
+    background-color: rgba(0, 149, 255, 0.63);
     color: white;
     cursor: pointer;
     margin-top: 20px;
 }
 
 button:hover {
-    background-color: #b30000;
+    background-color: #1900ff;
 }
