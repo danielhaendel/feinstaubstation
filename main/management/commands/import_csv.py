@@ -14,28 +14,17 @@ def readLines(filepfad):
         print(line)
 def convertData(line):  # From string to SQL Light String
     splittet = line.split(";")
-    returnedStr = "";
+    return tuple(splittet)
 
 
-    if splittet[1].lower() == "dht22":
-        dht = "()"
-    elif splittet[1].lower() == "sds011":
-        sds = ""
-
-    return returnedStr
-def insertIntoSQL(table, dataArray):
-    with connection.cursor() as cursor:
-        # TODO Check if exsisting
-        # TODO Insert if not Existing
-
-def checkIfExisting(table, timestamp):
+def checkIfExisting(tableName, timestamp, data):
     with connection.cursor as cursor:
         dht = "(id, sensor_id, sensor_type, location, lat, lon, timestamp, temperature, humidity)"
         sds = "(id, sensor_id, sensor_type, location, lat, lon, timestamp, p1, durp1, ratiop1, p2, durp2, ratiop2)"
 
-        if table.contains("sds"):
-            cursor.execute("IF NOT EXISTING (select 1 FROM " + table + " WHERE timestamp = "+ timestamp +") BEGIN "  
-                            "INSERT INTO "+table+" " + sds + "VALUES " + "")
+        if tableName.contains("sds"):
+            cursor.execute("IF NOT EXISTING (select 1 FROM " + tableName + " WHERE timestamp = "+ timestamp +") BEGIN "  
+                            "INSERT INTO "+tableName+" " + sds + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)" +  data)
         else:
-            cursor.execute("IF NOT EXISTING (select 1 FROM " + table + " WHERE timestamp = " + timestamp + ") BEGIN "
-                            "INSERT INTO " + table + " " + dht + "VALUES " + "")
+            cursor.execute("IF NOT EXISTING (select 1 FROM " + tableName + " WHERE timestamp = " + timestamp + ") BEGIN "
+                            "INSERT INTO " + tableName + " " + dht + "VALUES(?,?,?,?,?,?,?,?,?) " + data)
