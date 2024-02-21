@@ -11,6 +11,8 @@ clone the repo to your local computer:
 --  git clone https://github.com/danielhaendel/feinstaubstation
 --
 
+Hallo Laura
+
 
 How to use django:
 

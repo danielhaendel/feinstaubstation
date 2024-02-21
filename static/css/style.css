@@ -35,7 +35,7 @@ input, select, button {
 
 button {
     background-color: #ff0000a0;
-    color: white;
+    color: blue;
     cursor: pointer;
     margin-top: 20px;
 }
