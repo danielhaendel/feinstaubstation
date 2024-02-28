@@ -1,24 +1,30 @@
-from django.core.management.base import BaseCommand
-from main.models import *
-import csv
+import os
+from django.db import connection
+
+def readFiles(folder):
+    for file in os.listdir(folder):
+        #print("File:" + folder + "/" + file) Bug Check
+        readLines(folder + "/" + file)
+
+def readLines(filepfad):
+    file = open(filepfad, "r")
+    lines = file.readlines()
+    for line in lines:
+        # TODO put lines SQL
+        print(line)
+def convertData(line):  # From string to SQL Light String
+    splittet = line.split(";")
+    return tuple(splittet)
 
 
-class Command(BaseCommand):
-    help = 'Importiert Daten aus einer CSV-Datei in die Datenbank'
+def checkIfExisting(tableName, timestamp, data):
+    with connection.cursor as cursor:
+        dht = "(id, sensor_id, sensor_type, location, lat, lon, timestamp, temperature, humidity)"
+        sds = "(id, sensor_id, sensor_type, location, lat, lon, timestamp, p1, durp1, ratiop1, p2, durp2, ratiop2)"
 
-    def add_arguments(self, parser):
-        parser.add_argument('csv_file_path', type=str, help='Der Pfad zur CSV-Datei')
-
-    def handle(self, *args, **kwargs):
-        csv_file_path = kwargs['csv_file_path']
-
-        with open(csv_file_path, newline='', encoding='utf-8') as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                Person.objects.create(
-                    name=row['Name'],
-                    alter=row['Alter'],
-                    stadt=row['Stadt']
-                )
-
-        self.stdout.write(self.style.SUCCESS('Daten erfolgreich importiert.'))
+        if tableName.contains("sds"):
+            cursor.execute("IF NOT EXISTING (select 1 FROM " + tableName + " WHERE timestamp = "+ timestamp +") BEGIN "  
+                            "INSERT INTO "+tableName+" " + sds + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)" +  data)
+        else:
+            cursor.execute("IF NOT EXISTING (select 1 FROM " + tableName + " WHERE timestamp = " + timestamp + ") BEGIN "
+                            "INSERT INTO " + tableName + " " + dht + "VALUES(?,?,?,?,?,?,?,?,?) " + data)
