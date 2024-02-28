@@ -14,35 +14,25 @@
 </style>
 <body>
     <div class="form-container">
-        <!--<div class="header">
-            <img src="{% static 'img/tbs1_logo.png' %}" alt="TBS1 Logo">
-            <h1>Luftdaten TBS1</h1>
-        </div> -->
-        <form id="sensorQueryForm" method="post">
-            {% csrf_token %}
+        <form id="sensorQueryForm">
             <label for="date">Datum:</label>
             <input type="date" id="date" name="date" required>
+
             <label for="sensorType">Sensortyp:</label>
             <select id="sensorType" name="sensorType" required>
                 <option value="temperatur">Temperatur</option>
                 <option value="humidity">Luftfeuchtigkeit</option>
                 <option value="pm">Feinstaub</option>
+                <!--TODO: rausfinden welche daten hier noch benötigt werden und berichten an DH -->
+                <!-- Weitere Sensortypen können hier hinzugefügt werden -->
             </select>
 
             <button type="submit">Abfragen</button>
         </form>
         <div id="result">
-            {% if highest_value %}
-                <p>Höchstwert: {{ highest_value }} </p>
-                <p>Durchschnittswert: {{ average_value }} </p>
-                <p>Niedrigster Wert: {{ lowest_value }} </p>
-            {% endif %}
-            {% if highest_p1 %}
-                <p>Höchstwert PM10: {{ highest_p1 }} μg/m³</p>
-                <p>Durchschnittswert PM10: {{ average_p1 }} μg/m³</p>
-                <p>Niedrigster Wert PM10: {{ lowest_p1 }} μg/m³</p>
-                <!-- Sie können hier ähnlich für PM2.5 (p2) Werte anzeigen -->
-            {% endif %}
+            <p>Höchstwert: <span id="high">-</span></p>
+            <p>Durchschnittswert: <span id="mid">-</span></p>
+            <p>Niedrigster Wert: <span id="low">-</span></p>
         </div>
     </div>
 </body>

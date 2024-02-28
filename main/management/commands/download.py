@@ -2,7 +2,7 @@ import urllib.request
 from datetime import datetime, timedelta
 
 def download(sensor_list, base_url):
-    '�ffnet die URL f�r jeden Sensor in der Liste, liest den Inhalt und gibt ihn in bin�rer Form zur�ck.'
+    'Öffnet die URL für jeden Sensor in der Liste, liest den Inhalt und gibt ihn in binärer Form zurück.'
     data_list = []
     for sensor in sensor_list:
         data = urllib.request.urlopen(base_url + sensor).read()
@@ -27,8 +27,8 @@ while startDatum <= endDatum:
     ]
     "Hier den Pfad anpassen"
     filenames = [
-    "C:\\C_DEV\Testdaten_Feinstaubstation\\" + sensor_list[0],
-    "C:\\C_DEV\Testdaten_Feinstaubstation\\" + sensor_list[1]
+    "C:\\Users\\daniel.haendel\\Documents\\dev\\feinstaubstation\\main\\csv_download\\gzFiles\\" + sensor_list[0],
+    "C:\\Users\\daniel.haendel\\Documents\\dev\\feinstaubstation\\main\\csv_download\\gzFiles\\" + sensor_list[1]
     ]
     base_url = "https://archive.sensor.community/2022/"+ startDatum.strftime("%Y-%m-%d") +"/"
         
