@@ -2,7 +2,7 @@ import urllib.request
 from datetime import datetime, timedelta
 
 def download(sensor_list, base_url):
-    'Öffnet die URL für jeden Sensor in der Liste, liest den Inhalt und gibt ihn in binärer Form zurück.'
+    'ï¿½ffnet die URL fï¿½r jeden Sensor in der Liste, liest den Inhalt und gibt ihn in binï¿½rer Form zurï¿½ck.'
     data_list = []
     for sensor in sensor_list:
         data = urllib.request.urlopen(base_url + sensor).read()
