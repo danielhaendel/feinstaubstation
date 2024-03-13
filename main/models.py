@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class SDS011_3659_2022(models.Model):
+class SDS011(models.Model):
     id = models.AutoField(primary_key=True)
     sensor_id = models.IntegerField(default=3659)
     sensor_type = models.CharField(max_length=6,default='SDS011')
@@ -20,7 +20,7 @@ class SDS011_3659_2022(models.Model):
     def __str__(self):
         return f"{self.id} - {self.sensor_type}"
 
-class DHT22_3660_2022(models.Model):
+class DHT22(models.Model):
     id = models.AutoField(primary_key=True)
     sensor_id = models.IntegerField(default=3660)
     sensor_type = models.CharField(max_length=6,default='DHT22')
