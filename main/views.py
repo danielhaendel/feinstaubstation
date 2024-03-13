@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Max, Avg, Min
-from .models import DHT22_3660_2022, SDS011_3659_2022
+from .models import *
 from datetime import datetime
 
 # Create your views here.
