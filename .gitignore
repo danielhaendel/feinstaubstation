@@ -1,1 +1,8 @@
 .env
+/.vs/Feinstaubstation/FileContentIndex
+/venv/Lib/site-packages/asgiref/__pycache__
+/venv/Lib/site-packages/django/apps/__pycache__
+/venv/Lib/site-packages/django/conf/locale/ar/__pycache__
+/venv/Lib/site-packages/django
+/venv/Lib/site-packages/dotenv/__pycache__
+/venv
