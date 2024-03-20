@@ -24,7 +24,7 @@ def checkIfExisting(tableName, timestamp, data):
 
         if tableName.contains("sds"):
             cursor.execute("IF NOT EXISTING (select 1 FROM " + tableName + " WHERE timestamp = "+ timestamp +") BEGIN "  
-                            "INSERT INTO "+tableName+" " + sds + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)" +  data)
+                            "INSERT INTO "+tableName+" " + sds + " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) " +  data)
         else:
             cursor.execute("IF NOT EXISTING (select 1 FROM " + tableName + " WHERE timestamp = " + timestamp + ") BEGIN "
                             "INSERT INTO " + tableName + " " + dht + "VALUES(?,?,?,?,?,?,?,?,?) " + data)
